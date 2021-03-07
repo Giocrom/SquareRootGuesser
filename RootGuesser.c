@@ -6,6 +6,10 @@
 //Naturally it will never be exaclty the same, but I'm going to adjust the
 //result every time based on the rest of "Number - a*a";
 
+//For Reference
+//PHI = 1,6180339...
+//root(5) = 2.2360679...
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
