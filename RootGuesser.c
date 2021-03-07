@@ -17,19 +17,22 @@
 
 int main(){
 
-  float Number = 5.0, Precision = 0.000001, Rest, Error = 5.0, a = 0.0;
+  double Number = 5.0, Precision = 0.000000000000001, Rest, Error = 5.0, Root = 0.0;  //Max Precision that I could run
   srand((unsigned int)time(NULL));     //setting the seed
 
   do {
-    a = ((float)rand()/(float)(RAND_MAX) * Error) + a;     //Random a
-    Rest = Number - (a * a);
-    Error = Rest/a;   //Calculating the Error
-    printf("N: %f\nA: %f\nR: %f\nE: %f\n", Number, a, Rest, Error);
+    if(Error > 0){
+      Root = ((double)rand()/(double)(RAND_MAX) * Error) + Root;     //Random Root
+    } else if(Error < 0){
+      Root = ((double)rand()/(double)(RAND_MAX) * (-Error)) + (Root + Error);
+    }
+    Rest = Number - (Root * Root);
+    Error = Rest/Root;   //Calculating the Error
+    printf("Number: %f\nRoot: %.20f\nRest: %.20f\nError: %.20f\n", Number, Root, Rest, Error);
 
   } while(Error >= Precision || Error <= -Precision);
-
-  printf("N: %f\nA: %f\nR: %f\nE: %f\n", Number, a, Rest, Error);
-  printf("PHI = %f\n", (1 + a)/2);    //Calculating PHI (if Number = 5.0)
+  
+  printf("PHI = %.15f\n", (1 + Root)/2);    //Calculating PHI (if Number = 5.0)
 
   return 0;
 }
