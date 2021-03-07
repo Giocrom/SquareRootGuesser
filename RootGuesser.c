@@ -29,7 +29,7 @@ int main(){
   } while(Error >= Precision || Error <= -Precision);
 
   printf("N: %f\nA: %f\nR: %f\nE: %f\n", Number, a, Rest, Error);
-  printf("PHI = %f\n", (1 + a)/2);    //Calculating PHI
+  printf("PHI = %f\n", (1 + a)/2);    //Calculating PHI (if Number = 5.0)
 
   return 0;
 }
